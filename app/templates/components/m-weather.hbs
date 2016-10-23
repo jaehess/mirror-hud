@@ -1,1 +1,5 @@
-{{yield}}
+{{weather.temperature}}<i class="wi wi-degrees"></i>, {{weather.summary}}
+
+{{#if weather.icon}}
+  <i class="wi wi-forecast-io-{{weather.icon}}"></i>
+{{/if}}

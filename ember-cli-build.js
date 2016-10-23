@@ -1,6 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -19,6 +20,17 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+  app.import('bower_components/font-awesome/css/font-awesome.css');
+  var fa = new Funnel('bower_components/font-awesome', {
+      srcDir: 'fonts',
+      destDir: 'fonts'
+  });
 
-  return app.toTree();
+  app.import('bower_components/weather-icons/css/weather-icons.css');
+  var wi = new Funnel('bower_components/weather-icons', {
+      srcDir: 'font',
+      destDir: 'font'
+  });
+
+  return app.toTree([fa, wi]);
 };

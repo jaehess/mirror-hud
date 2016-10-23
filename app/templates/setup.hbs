@@ -1,0 +1,17 @@
+<div>
+  <label>Version</label>
+  {{input value=model.version}}
+</div>
+
+<div>
+  <label>Geolocation</label>
+  {{input value=model.geoLatitude}}
+  {{input value=model.geoLongitude}}
+</div>
+
+<div>
+  <label>Darksky API Key</label>
+  {{input value=model.darkSkyApiKey}}
+</div>
+
+<button {{action 'save' model}}>Save</button>

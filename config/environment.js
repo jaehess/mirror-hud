@@ -16,6 +16,13 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    firebase: {
+      apiKey: "AIzaSyAn2VJecK_7FQm6zlGw_LgnGKe_kt9HeA4",
+      authDomain: "mirror-hud.firebaseapp.com",
+      databaseURL: "https://mirror-hud.firebaseio.com",
+      storageBucket: "mirror-hud.appspot.com",
+      messagingSenderId: "468064034529"
     }
   };
 
