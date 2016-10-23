@@ -3,7 +3,7 @@
 </div>
 
 <div class="lrg">
-  {{moment-format model 'h:mm:ss'}}
+  {{moment-format model 'h:mm'}}
 </div>
 
 {{live-weather
@@ -12,9 +12,9 @@
   latitude=bag.geoLatitude
   longitude=bag.geoLongitude}}
 
-{{!-- BIRTHDAYS --}}
+{{live-birthdays now=model collection=birthdays}}
 
-{{!-- CHORES --}}
+{{live-chores now=model collection=chores}}
 
 {{!-- VTA --}}
 
@@ -23,3 +23,15 @@
 {{!-- TRAFFIC --}}
 
 {{!-- GREETING --}}
+
+{{!-- SEED
+<button{{action "seed" "chore" (hash occurs=0 text="Clean the pool")}}>Seed Chore Pool</button>
+<button{{action "seed" "chore" (hash occurs=0 text="Laundry")}}>Seed Chore Laundry</button>
+<button{{action "seed" "chore" (hash occurs=3 text="Take out garbage")}}>Seed Chore Garbage</button>
+
+<button {{action "seed" "birthday" (hash day=10 month=3 name="Summer" year=1978)}}>Seed Birthday Summer</button>
+<button {{action "seed" "birthday" (hash day=6 month=3 name="Jae" year=1979)}}>Seed Birthday Jae</button>
+<button {{action "seed" "birthday" (hash day=10 month=6 name="Jonathan" year=1999)}}>Seed Birthday Jon</button>
+<button {{action "seed" "birthday" (hash day=9 month=12 name="Lillian" year=2003)}}>Seed Birthday Lillian</button>
+<button {{action "seed" "birthday" (hash day=5 month=12 name="Evelyn" year=2012)}}>Seed Birthday Evelyn</button>
+--}}

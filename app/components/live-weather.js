@@ -7,9 +7,7 @@ const {
   computed: {
     alias,
     and,
-    collect,
-    gte,
-    lte
+    collect
   },
   computed,
   get,
@@ -37,6 +35,10 @@ export default Component.extend(LiveComponent, {
     } else if (hour >= 18) {
       return get(this, 'data.daily.data.1');
     }
+  }),
+
+  sunrise: computed('currentHour', 'data.daily.data', function() {
+
   }),
 
   recompute() {
