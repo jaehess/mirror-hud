@@ -1,10 +1,27 @@
-{{m-weather weather=current}}
+<div class="med">
+  {{current.temperature}}<i class="wi wi-degrees"></i>, {{current.summary}}
 
-{{!-- Today forecast --}}
-{{log today}}
+  {{#if current.icon}}
+    <i class="wi wi-forecast-io-{{current.icon}}"></i>
+  {{/if}}
+</div>
 
-{{!-- Tomorrow forecast --}}
-{{log tomorrow}}
+{{#if preview}}
+<div>
+  {{preview.temperatureMin}}<i class="wi wi-degrees"></i>
+  /
+  {{preview.temperatureMax}}<i class="wi wi-degrees"></i>
+  <br/>{{preview.summary}}
+</div>
 
-{{!-- Sunset --}}
-{{!-- Sunrise --}}
+<div>
+  <i class="wi wi-sunrise"></i>
+  {{preview.sunriseTime}}
+</div>
+
+<div>
+  <i class="wi wi-sunset"></i>
+  {{preview.sunsetTime}}
+</div>
+
+{{/if}}

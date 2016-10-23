@@ -7,7 +7,9 @@ const {
   computed: {
     alias,
     and,
-    collect
+    collect,
+    gte,
+    lte
   },
   computed,
   get,
@@ -22,9 +24,20 @@ export default Component.extend(LiveComponent, {
   canFetchData: and('key', 'geolocation'),
   current: alias('data.currently'),
   geolocation: collect('latitude', 'longitude'),
-  preview: alias('data.daily.data'),
-  today: alias('preview.0'),
-  tomorrow: alias('preview.1'),
+
+  currentHour: computed('now', function() {
+    return get(this, 'now').hour();
+  }),
+
+  preview: computed('currentHour', 'data.daily.data', function() {
+    let hour = get(this, 'currentHour');
+
+    if (hour <= 15) {
+      return get(this, 'data.daily.data.0');
+    } else if (hour >= 18) {
+      return get(this, 'data.daily.data.1');
+    }
+  }),
 
   recompute() {
     return get(this, 'fetchData').perform();
