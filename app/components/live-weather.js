@@ -37,10 +37,6 @@ export default Component.extend(LiveComponent, {
     }
   }),
 
-  sunrise: computed('currentHour', 'data.daily.data', function() {
-
-  }),
-
   recompute() {
     return get(this, 'fetchData').perform();
   },
@@ -52,7 +48,7 @@ export default Component.extend(LiveComponent, {
       let url = `https://api.darksky.net/forecast/${key}/${location}`;
 
       yield get(this, 'ajax').request(url, {
-        dataType: 'jsonp'
+        dataType: 'json'
       }).then((response) => set(this, 'data', response));
     }
   }).on('init')

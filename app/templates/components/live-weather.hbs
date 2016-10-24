@@ -1,5 +1,5 @@
 <div class="med">
-  {{current.temperature}}<i class="wi wi-degrees"></i>, {{current.summary}}
+  {{format-temperature current.temperature}}, {{current.summary}}
 
   {{#if current.icon}}
     <i class="wi wi-forecast-io-{{current.icon}}"></i>
@@ -8,12 +8,13 @@
 
 {{#if preview}}
 <div>
-  {{preview.temperatureMin}}<i class="wi wi-degrees"></i>
+  {{format-temperature preview.temperatureMin}}
   /
-  {{preview.temperatureMax}}<i class="wi wi-degrees"></i>
+  {{format-temperature preview.temperatureMax}}
   <br/>{{preview.summary}}
 </div>
 
+<!--
 <div>
   <i class="wi wi-sunrise"></i>
   {{preview.sunriseTime}}
@@ -23,5 +24,6 @@
   <i class="wi wi-sunset"></i>
   {{preview.sunsetTime}}
 </div>
+-->
 
 {{/if}}
