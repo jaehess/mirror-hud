@@ -3,7 +3,6 @@ import moment from 'moment';
 
 const {
   Controller,
-  get,
   run:{ bind: runBind },
   set
 } = Ember;

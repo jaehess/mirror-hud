@@ -51,7 +51,9 @@ export default Component.extend(LiveComponent, {
       let location = get(this, 'geolocation').join(',');
       let url = `https://api.darksky.net/forecast/${key}/${location}`;
 
-      yield get(this, 'ajax').request(url).then((response) => set(this, 'data', response));
+      yield get(this, 'ajax').request(url, {
+        dataType: 'jsonp'
+      }).then((response) => set(this, 'data', response));
     }
   }).on('init')
 
