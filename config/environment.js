@@ -23,6 +23,9 @@ module.exports = function(environment) {
       databaseURL: "https://mirror-hud.firebaseio.com",
       storageBucket: "mirror-hud.appspot.com",
       messagingSenderId: "468064034529"
+    },
+    forecast: {
+      dataType: 'json'
     }
   };
 
@@ -46,7 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.forecast.dataType = 'jsonp';
   }
 
   return ENV;

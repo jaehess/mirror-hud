@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
 import LiveComponent from '../mixins/live-component';
+import ENV from 'ember-get-config';
 
 const {
   Component,
@@ -48,7 +49,7 @@ export default Component.extend(LiveComponent, {
       let url = `https://api.darksky.net/forecast/${key}/${location}`;
 
       yield get(this, 'ajax').request(url, {
-        dataType: 'json'
+        dataType: ENV.forecast.dataType
       }).then((response) => set(this, 'data', response));
     }
   }).on('init')
